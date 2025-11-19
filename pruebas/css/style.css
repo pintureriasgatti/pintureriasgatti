@@ -488,7 +488,7 @@ section {
 }
 
 .productos .box-container .box .image {
-  height: 25rem;
+  height: 40rem;
   overflow: hidden;
   padding: 2rem;
   padding-bottom: 0;
@@ -777,6 +777,54 @@ section {
     font-size: 1.6rem;
 }
 
+
+
+.marcas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 60px;
+    justify-content: center;     /* CENTRA la grilla completa */
+    justify-items: center;       /* CENTRA cada imagen */
+    margin-top: 40px;
+}
+
+/* Tamaños iguales */
+.marcas-grid img {
+    width: 200px;
+    height: 11vh;
+}
+
+/* Segunda fila centrada EXACTAMENTE */
+.marcas-grid img:nth-child(5) { grid-column: 2; } /* posición centrada */
+.marcas-grid img:nth-child(6) { grid-column: 3; }
+.marcas-grid img:nth-child(7) { grid-column: 4; }
+
+/* 📱 MÓVIL: todas hacia abajo, 1 por fila */
+@media (max-width: 768px) {
+
+    .marcas-grid {
+        grid-template-columns: 1fr;  /* una sola columna */
+        justify-content: center;
+        justify-items: center;
+        gap: 25px;
+    }
+
+    /* Reiniciamos columnas para que NO queden en grilla horizontal */
+    .marcas-grid img:nth-child(5),
+    .marcas-grid img:nth-child(6),
+    .marcas-grid img:nth-child(7) {
+        grid-column: auto;
+    }
+
+    .marcas-grid img {
+        width: 180px;
+    }
+}
+
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .sucursal {
@@ -785,15 +833,6 @@ section {
 }
 
 
-.marcas .silde {
-  text-align: center;
-}
-
-.marcas .silde img {
-  width: 28rem;
-  height: 16rem;
-  padding: 1rem;
-}
 
 .footer {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/footer-bg.jpg) no-repeat;
